@@ -6,10 +6,11 @@ topology:
     srl:
       type: ixr6
       image: registry.srlinux.dev/pub/srlinux # latest, or srlinux:21.3.1-410
-      license: license.key
+      license: ../license.key
   nodes:
     leaf1:
       kind: srl
+      config: leaf1.cfg.json
     leaf2:
       kind: srl
     spine1:
