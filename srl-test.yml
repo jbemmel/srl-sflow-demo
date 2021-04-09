@@ -6,15 +6,19 @@ topology:
     leaf1:
       kind: srl
       image: registry.srlinux.dev/pub/srlinux # latest, or srlinux:21.3.1-410
+      license: ../license.key
     leaf2:
       kind: srl
       image: registry.srlinux.dev/pub/srlinux
+      license: ../license.key
     spine1:
       kind: srl
       image: registry.srlinux.dev/pub/srlinux
+      license: ../license.key
     spine2:
       kind: srl
       image: registry.srlinux.dev/pub/srlinux
+      license: ../license.key
     h1:
       kind: linux
       image: alpine:latest # or frrouting/frr:latest
