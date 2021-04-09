@@ -35,3 +35,5 @@ topology:
     - endpoints: ["leaf2:eth2","spine2:eth2"]
     - endpoints: ["h1:eth1","leaf1:eth3"]
     - endpoints: ["h2:eth1","leaf2:eth3"]
+    # Connect sFlow collector to Spine #1
+    - endpoints: ["sflow-collector:eth1","spine1:eth3"]
