@@ -25,6 +25,9 @@ topology:
     h2:
       kind: linux
       image: alpine:latest
+    sflow-collector: # Added
+      kind: linux
+      image: sflow/prometheus
   links: 
     - endpoints: ["leaf1:eth1","spine1:eth1"]
     - endpoints: ["leaf1:eth2","spine2:eth1"]
