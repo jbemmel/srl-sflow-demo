@@ -2,19 +2,20 @@
 
 name: srl-test
 topology:
+  kinds:
+    srl:
+      type: ixr6
+      image: registry.srlinux.dev/pub/srlinux # latest, or srlinux:21.3.1-410
+      license: license.key
   nodes:
     leaf1:
       kind: srl
-      image: registry.srlinux.dev/pub/srlinux # latest, or srlinux:21.3.1-410
     leaf2:
       kind: srl
-      image: registry.srlinux.dev/pub/srlinux
     spine1:
       kind: srl
-      image: registry.srlinux.dev/pub/srlinux
     spine2:
       kind: srl
-      image: registry.srlinux.dev/pub/srlinux
     h1:
       kind: linux
       image: alpine:latest # or frrouting/frr:latest
@@ -25,11 +26,11 @@ topology:
       kind: linux
       image: sflow/prometheus
   links: 
-    - endpoints: ["leaf1:eth1","spine1:eth1"]
-    - endpoints: ["leaf1:eth2","spine2:eth1"]
-    - endpoints: ["leaf2:eth1","spine1:eth2"]
-    - endpoints: ["leaf2:eth2","spine2:eth2"]
-    - endpoints: ["h1:eth1","leaf1:eth3"]
-    - endpoints: ["h2:eth1","leaf2:eth3"]
+    - endpoints: ["leaf1:e1-1","spine1:e1-1"]
+    - endpoints: ["leaf1:e1-2","spine2:e1-1"]
+    - endpoints: ["leaf2:e1-1","spine1:e1-2"]
+    - endpoints: ["leaf2:e1-2","spine2:e1-2"]
+    - endpoints: ["h1:eth1","leaf1:e1-3"]
+    - endpoints: ["h2:eth1","leaf2:e1-3"]
     # Connect sFlow collector to Spine #1
-    - endpoints: ["sflow-collector:eth1","spine1:eth3"]
+    - endpoints: ["sflow-collector:eth1","spine1:e1-3"]
