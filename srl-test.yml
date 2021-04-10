@@ -37,6 +37,7 @@ topology:
       mgmt_ipv4: 172.100.100.10 # Pick a fixed IP
       mgmt_ipv6: 2001:172:100:100::10
     # note, that the bridge br-sflow must be created manually on Linux host
+    # sudo ip link add br-sflow type bridge
     br-sflow:
       kind: bridge
   links: 
