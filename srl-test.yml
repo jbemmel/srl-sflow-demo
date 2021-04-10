@@ -36,6 +36,9 @@ topology:
       image: sflow/prometheus
       mgmt_ipv4: 172.100.100.10 # Pick a fixed IP
       mgmt_ipv6: 2001:172:100:100::10
+    # note, that the bridge br-sflow must be created manually on Linux host
+    br-sflow:
+      kind: bridge
   links: 
     - endpoints: ["leaf1:e1-1","spine1:e1-1"]
     - endpoints: ["leaf1:e1-2","spine2:e1-1"]
@@ -43,3 +46,5 @@ topology:
     - endpoints: ["leaf2:e1-2","spine2:e1-2"]
     - endpoints: ["h1:eth1","leaf1:e1-3"]
     - endpoints: ["h2:eth1","leaf2:e1-3"]
+    # Connect to sFlow connector via spine1, requires routing on host 192.168.0.0/16 via Spine1
+    - endpoints: ["spine1:e1-3","br-sflow:eth1"]
