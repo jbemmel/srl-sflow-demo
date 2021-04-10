@@ -1086,7 +1086,7 @@
           "ipv4": {
             "address": [
               {
-                "ip-prefix": "192.168.0.3/31"
+                "ip-prefix": "192.168.0.1/31"
               }
             ]
           }
@@ -1107,7 +1107,7 @@
           "ipv4": {
             "address": [
               {
-                "ip-prefix": "192.168.0.7/31"
+                "ip-prefix": "192.168.0.5/31"
               }
             ]
           }
@@ -1463,12 +1463,29 @@
   "srl_nokia-routing-policy:routing-policy": {
     "prefix-set": [
       {
+        "name": "loopbacks",
+        "prefix": [
+          {
+            "ip-prefix": "0.0.0.0/0",
+            "mask-length-range": "32..32"
+          }
+        ]
+      },
+      {
         "name": "p2plinks",
         "prefix": [
           {
             "ip-prefix": "0.0.0.0/0",
             "mask-length-range": "31..31"
           }
+        ]
+      }
+    ],
+    "community-set": [
+      {
+        "name": "no-export",
+        "member": [
+          "no-export"
         ]
       }
     ],
@@ -1513,6 +1530,21 @@
             "action": {
               "reject": {
                 
+              }
+            }
+          },
+          {
+            "sequence-id": 30,
+            "match": {
+              "prefix-set": "loopbacks"
+            },
+            "action": {
+              "accept": {
+                "bgp": {
+                  "communities": {
+                    "add": "no-export"
+                  }
+                }
               }
             }
           }
