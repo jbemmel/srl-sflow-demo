@@ -2,7 +2,7 @@
 
 name: srl-test
 mgmt:
-  network: fixedips
+  network: clab # Use the standard containerlab mgmt network, but with static IPs
   ipv4_subnet: 172.100.100.0/24
   ipv6_subnet: 2001:172:100:100::/64
 topology:
