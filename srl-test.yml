@@ -2,6 +2,10 @@
 
 name: srl-test
 topology:
+  mgmt:
+    network: fixedips
+    ipv4_subnet: 172.100.100.0/24
+    ipv6_subnet: 2001:172:100:100::/64
   kinds:
     srl:
       type: ixr6 # See https://www.nokia.com/networks/products/7250-interconnect-router/
@@ -28,6 +32,7 @@ topology:
     sflow-collector: # Added, connect via mgmt network
       kind: linux
       image: sflow/prometheus
+      mgmt_ipv4: 172.100.100.10 # Pick a fixed IP
   links: 
     - endpoints: ["leaf1:e1-1","spine1:e1-1"]
     - endpoints: ["leaf1:e1-2","spine2:e1-1"]
