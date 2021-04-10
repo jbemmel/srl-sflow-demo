@@ -13,6 +13,7 @@ topology:
       config: leaf1.cfg.json
     leaf2:
       kind: srl
+      config: leaf2.cfg.json
     spine1:
       kind: srl
     spine2:
