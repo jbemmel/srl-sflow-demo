@@ -20,8 +20,10 @@ topology:
       config: leaf2.cfg.json
     spine1:
       kind: srl
+      config: spine1.cfg.json
     spine2:
       kind: srl
+      config: spine2.cfg.json
  
     h1:
       kind: linux
