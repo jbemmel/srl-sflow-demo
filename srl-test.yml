@@ -4,7 +4,7 @@ name: srl-test
 topology:
   kinds:
     srl:
-      type: ixr6
+      type: ixr6 # See https://www.nokia.com/networks/products/7250-interconnect-router/
       image: registry.srlinux.dev/pub/srlinux # latest, or srlinux:21.3.1-410
       license: ../license.key
   nodes:
