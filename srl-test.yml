@@ -33,6 +33,7 @@ topology:
       kind: linux
       image: sflow/prometheus
       mgmt_ipv4: 172.100.100.10 # Pick a fixed IP
+      mgmt_ipv6: 2001:172:100:100::10
   links: 
     - endpoints: ["leaf1:e1-1","spine1:e1-1"]
     - endpoints: ["leaf1:e1-2","spine2:e1-1"]
