@@ -1,11 +1,11 @@
 # Based on https://blog.sflow.com/2021/04/containerlab.html
 
 name: srl-test
+mgmt:
+  network: fixedips
+  ipv4_subnet: 172.100.100.0/24
+  ipv6_subnet: 2001:172:100:100::/64
 topology:
-  mgmt:
-    network: fixedips
-    ipv4_subnet: 172.100.100.0/24
-    ipv6_subnet: 2001:172:100:100::/64
   kinds:
     srl:
       type: ixr6 # See https://www.nokia.com/networks/products/7250-interconnect-router/
