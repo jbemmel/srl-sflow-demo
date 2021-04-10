@@ -1,10 +1,10 @@
 # Based on https://blog.sflow.com/2021/04/containerlab.html
 
 name: srl-test
-mgmt:
-  network: clab # Use the standard containerlab mgmt network, but with static IPs
-  ipv4_subnet: 172.20.20.0/24
-  ipv6_subnet: 2001:172:20:20::/64
+#mgmt:
+#  network: clab # Use the standard containerlab mgmt network, but with static IPs
+#  ipv4_subnet: 172.20.20.0/24
+#  ipv6_subnet: 2001:172:20:20::/64
 topology:
   kinds:
     srl:
@@ -36,6 +36,10 @@ topology:
       image: sflow/prometheus
       mgmt_ipv4: 172.20.20.10 # Pick a fixed IP
       mgmt_ipv6: 2001:172:20:20::10
+    
+    # Represent the mgmt bridge for sFlow, this depends on the local environment
+    br-cd73bbacbf7e:
+      kind: bridge
 
   links: 
     - endpoints: ["leaf1:e1-1","spine1:e1-1"]
@@ -45,3 +49,5 @@ topology:
     - endpoints: ["h1:eth1","leaf1:e1-3"]
     - endpoints: ["h2:eth1","leaf2:e1-3"]
     
+    # Connect to sFlow connector via spine1, attaching to mgmt bridge
+    - endpoints: ["spine1:e1-1","br-cd73bbacbf7e:eth1"]
