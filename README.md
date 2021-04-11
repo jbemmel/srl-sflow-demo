@@ -10,9 +10,11 @@ In SR Linux, sFlow records are sent inband (and not via the management network);
 ## sFlow web interface
 
 Open a web browser to http://172.20.20.10:8008/html/index.html to see sFlow stats coming in.
-For the lab, only leaf1 is configured to send sFlow UDP packets to the collector, under `/system sflow`:
+For the lab, only leaf1 is configured to send sFlow UDP packets to the collector:
 ```
-A:leaf1# info                                                                                                                                                                                      
+A:leaf1# /system sflow                                                                                                                                                                                             
+--{ running }--[ system sflow ]--                                                                                                                                                                                  
+A:leaf1# info                                                                                                                                                                                                      
     admin-state enable
     collector 1 {
         collector-address 172.20.20.10
