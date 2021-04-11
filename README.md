@@ -14,13 +14,16 @@ Note: The Containerlab config file uses a [beta](https://github.com/jbemmel/srl-
 Open a web browser to http://172.20.20.10:8008/html/index.html to see sFlow stats coming in.
 For the lab, only leaf1 is configured to send sFlow UDP packets to the collector:
 ```
-A:leaf1# /system sflow                                                                                                                                                                                             
+A:leaf1# system sflow                                                                                                                                                                                              
 --{ running }--[ system sflow ]--                                                                                                                                                                                  
-A:leaf1# info                                                                                                                                                                                                      
+A:leaf1# info detail                                                                                                                                                                                               
     admin-state enable
+    sample-rate 10000
+    sample-size 256
     collector 1 {
         collector-address 172.20.20.10
         network-instance default
         source-address 192.168.0.1
+        port 6343
     }
 ```
