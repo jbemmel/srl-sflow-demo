@@ -37,13 +37,6 @@ topology:
       image: sflow/prometheus
       mgmt_ipv4: 172.20.20.10 # Pick a fixed IP
       mgmt_ipv6: 2001:172:20:20::10
-    
-    # Represent the mgmt bridge for sFlow, this must be created manually
-    # sudo ip link add br-sflow type bridge; sudo ip link set br-sflow up
-    # sudo ip addr add 192.168.0.101/31 dev br-sflow
-    # sFlow UDP is 1-way, so no need for static route back
-    br-sflow:
-      kind: bridge
 
   links: 
     - endpoints: ["leaf1:e1-1","spine1:e1-1"]
@@ -53,7 +46,6 @@ topology:
     - endpoints: ["h1:eth1","leaf1:e1-3"]
     - endpoints: ["h2:eth1","leaf2:e1-3"]
     
-    # Connect to sFlow connector via spine1
-    # - endpoints: ["spine1:e1-3","br-sflow:eth1"] # Routed option, requires manual bridge
-    - endpoints: ["spine1:e1-3","mgmt-net:spine1-e1-3"] # Beta clab feature, bridged
+    # Connect to sFlow connector via spine1 e1-3
+    - endpoints: ["spine1:e1-3","mgmt-net:spine1-e1-3"] # Beta clab feature, bridged to mgmt
     
