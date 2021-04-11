@@ -1,6 +1,10 @@
 # Based on https://blog.sflow.com/2021/04/containerlab.html
 
 name: srl-test
+
+features: # Features used in this Containerlab config, and the minimum version that supports it
+- connect-to-mgmt:0.13
+
 topology:
   kinds:
     srl:
