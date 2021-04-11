@@ -1220,6 +1220,17 @@
         }
       ]
     },
+    "srl_nokia-sflow:sflow": {
+       "admin-state": "enable",
+       "collector": [
+         {
+           "collector-id": 1,
+           "collector-address": "172.20.20.10",
+           "network-instance": "default",
+           "source-address": "192.168.0.1"
+         }
+       ]
+    },
     "srl_nokia-lldp:lldp": {
       "admin-state": "enable"
     },

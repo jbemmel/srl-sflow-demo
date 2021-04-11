@@ -1110,6 +1110,23 @@
       ]
     },
     {
+      "name": "ethernet-1/3",
+      "admin-state": "enable",
+      "subinterface": [
+        {
+          "index": 0,
+          "admin-state": "enable",
+          "ipv4": {
+            "address": [
+              {
+                "ip-prefix": "172.20.20.254/24"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
       "name": "mgmt0",
       "admin-state": "enable",
       "subinterface": [
@@ -1336,12 +1353,16 @@
         },
         {
           "name": "ethernet-1/2.0"
+        },
+        {
+          "name": "ethernet-1/3.0"
         }
       ],
       "protocols": {
         "srl_nokia-bgp:bgp": {
           "admin-state": "enable",
           "autonomous-system": 65000,
+          "export-policy": "export-all",
           "router-id": "1.1.0.1",
           "dynamic-neighbors": {
             "accept": {
@@ -1402,5 +1423,17 @@
         }
       }
     }
-  ]
+  ],
+  "srl_nokia-routing-policy:routing-policy": {
+    "policy": [
+      {
+        "name": "export-all",
+        "default-action": {
+          "accept": {
+            
+          }
+        }
+      }
+    ]
+  }
 }
