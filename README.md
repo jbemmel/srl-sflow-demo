@@ -3,7 +3,7 @@ Inspired by Peter Phaal's sFlow demo at https://blog.sflow.com/2021/04/container
 
 In SR Linux, sFlow records are sent inband (and not via the management network); the lab uses eBGP to have Spine1 advertise a 172.20.20.0/24 route to its ethernet-1/3 interface which is connected to the sFlow collector (172.20.20.10).
 
-Note: The Containerlab config file uses a [beta](https://github.com/jbemmel/srl-sflow-demo/blob/main/srl-test.yml#L58) feature to connect spine1 e1-3 to the Linux management network bridge, until containerlab release 0.13 comes out a beta binary is included in this repo
+Note: The Containerlab config file uses a [beta](https://github.com/jbemmel/srl-sflow-demo/blob/main/srl-test.yml#L50) feature to connect spine1 e1-3 to the Linux management network bridge, until containerlab release 0.13 comes out a beta binary is included in this repo
 
 ## Deploy
 
