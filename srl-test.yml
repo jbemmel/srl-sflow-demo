@@ -34,7 +34,7 @@ topology:
       image: alpine:latest
     sflow-collector: # Added, connect via mgmt network
       kind: linux
-      image: sflow/prometheus
+      image: sflow/prometheus # Or try https://hub.docker.com/r/pmacct/sfacctd
       mgmt_ipv4: 172.20.20.10 # Pick a fixed IP
       mgmt_ipv6: 2001:172:20:20::10
 
