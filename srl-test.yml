@@ -3,7 +3,7 @@
 name: srl-test
 
 # Features used in this Containerlab config, and the minimum version that supports it
-# - connect-to-mgmt:0.13 # See https://containerlab.srlinux.dev/manual/network/#management-network
+# - connect-to-mgmt:0.13 # See https://containerlab.srlinux.dev/manual/network/#additional-connections-to-management-network
 
 topology:
   kinds:
@@ -47,5 +47,5 @@ topology:
     - endpoints: ["h2:eth1","leaf2:e1-3"]
     
     # Connect to sFlow connector via spine1 e1-3
-    - endpoints: ["spine1:e1-3","mgmt-net:spine1-e1-3"] # Beta clab feature, bridged to mgmt
+    - endpoints: ["spine1:e1-3","mgmt-net:spine1-e1-3"] # clab 0.13 feature, bridged to mgmt
     
