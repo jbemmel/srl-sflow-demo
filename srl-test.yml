@@ -14,8 +14,8 @@ topology:
   nodes:
     leaf1:
       kind: srl
-      # config: leaf1.cfg.json
-      config: leaf1-with-sflow.json
+      config: leaf1.cfg.json
+      # config: leaf1-with-sflow.json
     leaf2:
       kind: srl
       config: leaf2.cfg.json
