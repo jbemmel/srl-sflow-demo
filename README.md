@@ -7,7 +7,7 @@ Note: The Containerlab config file uses a [0.13 feature](https://containerlab.sr
 
 ## Deploy
 
-`sudo containerlab deploy -t ./srl-test.yml`
+```sudo containerlab deploy -t ./srl-test.yml```
 
 ## sFlow web interface
 
