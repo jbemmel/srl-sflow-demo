@@ -29,3 +29,9 @@ A:leaf1# info detail
         port 6343
     }
 ```
+
+## SR Linux sFlow documentation
+Can be found here: https://infocenter.nokia.com/public/SRLINUX213R1A/index.jsp?topic=%2Fcom.srlinux.toolkit%2Fhtml%2Ftoolkit-sflow.html
+
+## DDoS detection
+As explained in https://www.sanog.org/resources/sanog37/SANOG37_Conference-Network_Telemetry_for_DDoS_Detection_Applications-Pavel_Odintsov-FastNetMon_Project.pdf sFlow can be used as input for DDoS detection tools. This works best with hardware based sFlow (like on 7250 IXR), with reasonable sampling rates
