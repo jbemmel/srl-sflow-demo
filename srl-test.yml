@@ -1,6 +1,6 @@
 # Based on https://blog.sflow.com/2021/04/containerlab.html
 
-name: srl-test
+name: srl-sflow-test
 
 # Features used in this Containerlab config, and the minimum version that supports it
 # - connect-to-mgmt:0.13 # See https://containerlab.srlinux.dev/manual/network/#additional-connections-to-management-network
@@ -9,23 +9,22 @@ topology:
   kinds:
     srl:
       type: ixr6 # See https://www.nokia.com/networks/products/7250-interconnect-router/
-      image: registry.srlinux.dev/pub/srlinux # latest, or srlinux:21.3.1-410
-      license: ../license.key
+      image: ghcr.io/nokia/srlinux:latest
   nodes:
     leaf1:
       kind: srl
       # config: leaf1.cfg.json
-      config: leaf1-with-sflow.json
+      startup-config: leaf1-with-sflow.cfg.json
     leaf2:
       kind: srl
-      config: leaf2.cfg.json
+      startup-config: leaf2.cfg.json
     spine1:
       kind: srl
-      config: spine1.cfg.json
+      startup-config: spine1.cfg.json
     spine2:
       kind: srl
-      config: spine2.cfg.json
- 
+      startup-config: spine2.cfg.json
+
     h1:
       kind: linux
       image: alpine:latest # or frrouting/frr:latest
@@ -38,14 +37,13 @@ topology:
       mgmt_ipv4: 172.20.20.10 # Pick a fixed IP
       mgmt_ipv6: 2001:172:20:20::10
 
-  links: 
+  links:
     - endpoints: ["leaf1:e1-1","spine1:e1-1"]
     - endpoints: ["leaf1:e1-2","spine2:e1-1"]
     - endpoints: ["leaf2:e1-1","spine1:e1-2"]
     - endpoints: ["leaf2:e1-2","spine2:e1-2"]
     - endpoints: ["h1:eth1","leaf1:e1-3"]
     - endpoints: ["h2:eth1","leaf2:e1-3"]
-    
+
     # Connect to sFlow connector via spine1 e1-3
     - endpoints: ["spine1:e1-3","mgmt-net:spine1-e1-3"] # clab 0.13 feature, bridged to mgmt
-    

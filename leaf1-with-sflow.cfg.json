@@ -1128,7 +1128,7 @@
           "ipv4": {
             "address": [
               {
-                "ip-prefix": "172.16.2.1/24"
+                "ip-prefix": "172.16.1.1/24"
               }
             ]
           }
@@ -1146,7 +1146,7 @@
           "ipv4": {
             "address": [
               {
-                "ip-prefix": "1.1.1.2/32"
+                "ip-prefix": "1.1.1.1/32"
               }
             ]
           }
@@ -1188,6 +1188,18 @@
         }
       ]
     },
+    "sflow": {
+     "admin-state": "enable",
+     "collector": [
+      {
+        "collector-id": 1,
+        "collector-address": "172.20.20.10",
+        "network-instance": "default",
+        "source-address": "192.168.0.1",
+        "port": 6343
+      }
+     ]
+    },
     "srl_nokia-gnmi-server:gnmi-server": {
       "admin-state": "enable",
       "timeout": 7200,
@@ -1220,6 +1232,17 @@
           "admin-state": "enable"
         }
       ]
+    },
+    "srl_nokia-sflow:sflow": {
+       "admin-state": "enable",
+       "collector": [
+         {
+           "collector-id": 1,
+           "collector-address": "172.20.20.10",
+           "network-instance": "default",
+           "source-address": "192.168.0.1"
+         }
+       ]
     },
     "srl_nokia-lldp:lldp": {
       "admin-state": "enable"
@@ -1398,8 +1421,8 @@
       "protocols": {
         "srl_nokia-bgp:bgp": {
           "admin-state": "enable",
-          "autonomous-system": 65002,
-          "router-id": "1.1.1.2",
+          "autonomous-system": 65001,
+          "router-id": "1.1.1.1",
           "ebgp-default-policy": {
             "import-reject-all": false,
             "export-reject-all": false
@@ -1426,12 +1449,12 @@
           },
           "neighbor": [
             {
-              "peer-address": "192.168.0.2",
+              "peer-address": "192.168.0.0",
               "admin-state": "enable",
               "peer-group": "spines"
             },
             {
-              "peer-address": "192.168.0.6",
+              "peer-address": "192.168.0.4",
               "admin-state": "enable",
               "peer-group": "spines"
             }
