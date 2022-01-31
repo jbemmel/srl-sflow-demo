@@ -16,9 +16,11 @@ sudo containerlab deploy -t ./srl-test.yml
 Open a web browser to http://172.20.20.10:8008/html/index.html to see sFlow stats coming in.
 For the lab, only leaf1 is configured to send sFlow UDP packets to the collector:
 ```
-A:leaf1# system sflow                                                                                                                                                                                              
---{ running }--[ system sflow ]--                                                                                                                                                                                  
-A:leaf1# info detail                                                                                                                                                                                               
+A:leaf1# system sflow
+--{ running }--[ system sflow ]--
+
+A:leaf1# info detail
+
     admin-state enable
     sample-rate 10000
     sample-size 256
