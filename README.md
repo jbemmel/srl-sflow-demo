@@ -38,6 +38,7 @@ As explained in https://www.sanog.org/resources/sanog37/SANOG37_Conference-Netwo
 
 On 7250 IXR:
 ```
+--{ + candidate shared default }--[ system sflow ]--
 A:leaf1# sample-rate <value:10000>
 usage: sample-rate <value>
 
