@@ -1,5 +1,5 @@
 # srl-sflow-demo
-Inspired by Peter Phaal's sFlow demo at https://blog.sflow.com/2021/04/containerlab.html this lab creates a leaf-spine CLOS topology using SR Linux containers, fully [configured](https://github.com/jbemmel/srl-sflow-demo/blob/main/leaf1.cfg.json#L1223) to send sFlow records to a standard collector instance (launched as part of the lab).
+Inspired by Peter Phaal's sFlow demo at https://blog.sflow.com/2021/04/containerlab.html this lab creates a leaf-spine CLOS topology using SR Linux containers, fully [configured](https://github.com/jbemmel/srl-sflow-demo/blob/main/leaf1.cfg.json#L1224) to send sFlow records to a standard collector instance (launched as part of the lab).
 
 In SR Linux, sFlow records are sent inband (and not via the management network); the lab uses eBGP to have Spine1 advertise a 172.20.20.0/24 route to its ethernet-1/3 interface which is connected to the sFlow collector (172.20.20.10).
 
