@@ -35,3 +35,17 @@ Can be found here: https://infocenter.nokia.com/public/SRLINUX213R1A/index.jsp?t
 
 ## DDoS detection
 As explained in https://www.sanog.org/resources/sanog37/SANOG37_Conference-Network_Telemetry_for_DDoS_Detection_Applications-Pavel_Odintsov-FastNetMon_Project.pdf sFlow can be used as input for DDoS detection tools. This works best with hardware based sFlow (like on 7250 IXR), with reasonable sampling rates
+
+On 7250 IXR:
+```
+A:leaf1# sample-rate <value:10000>                                                                                                                                                                                 
+usage: sample-rate <value>
+
+Specify sFlow sample rate
+
+This value is the rate at which traffic will be sampled at a rate of 1:N received packets.
+
+Positional arguments:
+  value             [number, range 1..2000000, default 10000]
+```
+
