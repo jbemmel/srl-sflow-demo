@@ -8,7 +8,8 @@ name: srl-sflow-test
 topology:
   kinds:
     srl:
-      type: ixr6 # See https://www.nokia.com/networks/products/7250-interconnect-router/
+      # Use default SRL device type
+      # type: ixr6 # See https://www.nokia.com/networks/products/7250-interconnect-router/
       image: ghcr.io/nokia/srlinux:latest
   nodes:
     leaf1:
