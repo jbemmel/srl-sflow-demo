@@ -10,7 +10,7 @@ topology:
     srl:
       # Use default SRL device type
       # type: ixr6 # See https://www.nokia.com/networks/products/7250-interconnect-router/
-      image: ghcr.io/nokia/srlinux:latest
+      image: ghcr.io/nokia/srlinux:21.11.1
   nodes:
     leaf1:
       kind: srl
@@ -35,8 +35,8 @@ topology:
     sflow-collector: # Added, connect via mgmt network
       kind: linux
       image: sflow/prometheus # Or try https://hub.docker.com/r/pmacct/sfacctd
-      mgmt_ipv4: 172.20.20.10 # Pick a fixed IP
-      mgmt_ipv6: 2001:172:20:20::10
+      mgmt-ipv4: 172.20.20.10 # Pick a fixed IP
+      mgmt-ipv6: 2001:172:20:20::10
 
   links:
     - endpoints: ["leaf1:e1-1","spine1:e1-1"]
