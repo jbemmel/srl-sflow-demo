@@ -28,10 +28,25 @@ topology:
 
     h1:
       kind: linux
-      image: alpine:latest # or frrouting/frr:latest
+      image: ghcr.io/hellt/network-multitool # alpine:latest # or frrouting/frr:latest
+      exec:
+        - ip address add 172.16.1.11/24 dev eth1
+        - ip -6 address add 2002:1::172:16:1:11/96 dev eth1
+        - ip route replace default via 172.16.1.1 dev eth1
+        - ip -6 route replace default via 2002:1::172:16:1:1 dev eth1
+        - iperf3 -s -p 5201 -D > iperf3_1.log
+        - iperf3 -s -p 5202 -D > iperf3_2.log
     h2:
       kind: linux
-      image: alpine:latest
+      image: ghcr.io/hellt/network-multitool # alpine:latest
+      binds:
+      - iperf.sh:/iperf.sh
+      exec:
+        - ip address add 172.16.2.12/24 dev eth1
+        - ip -6 address add 2002:2::172:16:2:12/96 dev eth1
+        - ip route replace default via 172.16.2.1 dev eth1
+        - ip -6 route replace default via 2002:2::172:16:2:1 dev eth1
+
     sflow-collector: # Added, connect via mgmt network
       kind: linux
       image: sflow/prometheus # Or try https://hub.docker.com/r/pmacct/sfacctd
@@ -44,7 +59,7 @@ topology:
     - endpoints: ["leaf2:e1-1","spine1:e1-2"]
     - endpoints: ["leaf2:e1-2","spine2:e1-2"]
     - endpoints: ["h1:eth1","leaf1:e1-3"]
-    - endpoints: ["h2:eth1","leaf2:e1-3"]
+    - endpoints: ["h2:eth1","leaf1:e1-4"]
 
     # Connect to sFlow connector via spine1 e1-3
     - endpoints: ["spine1:e1-3","mgmt-net:spine1-e1-3"] # clab 0.13 feature, bridged to mgmt
